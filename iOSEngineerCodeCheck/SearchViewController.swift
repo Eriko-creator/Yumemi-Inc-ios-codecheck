@@ -56,10 +56,9 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     
     ///自身をdetailViewControllerに渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Detail"{
-            let detail = segue.destination as! DetailViewController
-            detail.searchViewController = self
-        }
+        guard segue.identifier == "Detail" else { return }
+        let detail = segue.destination as! DetailViewController
+        detail.searchViewController = self
     }
     
     ///contentsArrayに格納されているrepositoryの数だけセルを返す
