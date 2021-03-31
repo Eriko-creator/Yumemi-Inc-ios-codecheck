@@ -13,7 +13,6 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
     var contentsArray: [[String: Any]]=[]
-    
     var task: URLSessionTask?
     var searchWord: String!
     var url: String!
@@ -21,25 +20,25 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         searchBar.text = "GitHubのリポジトリを検索できるよー"
         searchBar.delegate = self
     }
     
+    ///searchBarをタップした際にテキストを空にする
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        // ↓こうすれば初期のテキストを消せる
         searchBar.text = ""
         return true
     }
     
+    ///入力文字が変更された時はAPI通信をしない
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         task?.cancel()
     }
     
+    ///searchボタンがタップされた時に入力文字を用いてgitHubAPIにリクエストを投げ、
+    ///tableViewをリロードして反映させる
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
         searchWord = searchBar.text!
-        
         if searchWord.count != 0 {
             url = "https://api.github.com/search/repositories?q=\(searchWord!)"
             task = URLSession.shared.dataTask(with: URL(string: url)!) { (data, res, err) in
@@ -52,41 +51,37 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
                     }
                 }
             }
-        // これ呼ばなきゃリストが更新されません
         task?.resume()
         }
-        
     }
     
+    ///自身をdetailViewControllerに渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "Detail"{
             let detail = segue.destination as! DetailViewController
             detail.searchViewController = self
         }
-        
     }
     
+    ///contentsArrayに格納されているrepositoryの数だけセルを返す
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contentsArray.count
     }
     
+    ///セルにリポジトリ名、プロジェクト言語を表示する
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = UITableViewCell()
         let repository = contentsArray[indexPath.row]
         cell.textLabel?.text = repository["full_name"] as? String ?? ""
         cell.detailTextLabel?.text = repository["language"] as? String ?? ""
         cell.tag = indexPath.row
         return cell
-        
     }
     
+    ///選択したセルのindexPath.row番目の数字をselectedIndexに格納する
+    ///DetailViewControllerに画面遷移する
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // 画面遷移時に呼ばれる
         selectedIndex = indexPath.row
         performSegue(withIdentifier: "Detail", sender: self)
-        
     }
-    
 }
