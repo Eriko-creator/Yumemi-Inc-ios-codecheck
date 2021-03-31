@@ -9,7 +9,7 @@
 import UIKit
 
 class SearchViewController: UITableViewController, UISearchBarDelegate {
-
+    
     @IBOutlet weak var searchBar: UISearchBar!
     
     var contentsArray: [[String: Any]]=[]
@@ -39,20 +39,19 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     ///tableViewをリロードして反映させる
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchWord = searchBar.text!
-        if searchWord.count != 0 {
-            url = "https://api.github.com/search/repositories?q=\(searchWord!)"
-            task = URLSession.shared.dataTask(with: URL(string: url)!) { (data, res, err) in
-                if let object = try! JSONSerialization.jsonObject(with: data!) as? [String: Any] {
-                    if let items = object["items"] as? [[String: Any]] {
-                    self.contentsArray = items
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
-                    }
-                }
+        guard searchWord != nil else {return}
+        url = "https://api.github.com/search/repositories?q=\(searchWord!)"
+        task = URLSession.shared.dataTask(with: URL(string: url)!) { (data, res, err) in
+            guard
+                let object = try! JSONSerialization.jsonObject(with: data!) as? [String: Any],
+                let items = object["items"] as? [[String: Any]]
+            else {return}
+            self.contentsArray = items
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
-        task?.resume()
         }
+        task?.resume()
     }
     
     ///自身をdetailViewControllerに渡す

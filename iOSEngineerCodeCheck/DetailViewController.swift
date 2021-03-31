@@ -19,7 +19,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var issuesCount: UILabel!
     
     var searchViewController: SearchViewController!
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ///searchViewControllerで取得したrepositoryの内容を反映させる
@@ -36,15 +36,14 @@ class DetailViewController: UIViewController {
     func getImage(){
         let repository = searchViewController.contentsArray[searchViewController.selectedIndex]
         titleLabel.text = repository["full_name"] as? String
-        if let owner = repository["owner"] as? [String: Any] {
-            if let imageURL = owner["avatar_url"] as? String {
-                URLSession.shared.dataTask(with: URL(string: imageURL)!) { (data, response, error) in
-                    let image = UIImage(data: data!)!
-                    DispatchQueue.main.async {
-                        self.avatorImageView.image = image
-                    }
-                }.resume()
+        guard let owner = repository["owner"] as? [String: Any],
+              let imageURL = owner["avatar_url"] as? String
+        else {return}
+        URLSession.shared.dataTask(with: URL(string: imageURL)!) { (data, response, error) in
+            let image = UIImage(data: data!)!
+            DispatchQueue.main.async {
+                self.avatorImageView.image = image
             }
-        }
+        }.resume()
     }
 }
