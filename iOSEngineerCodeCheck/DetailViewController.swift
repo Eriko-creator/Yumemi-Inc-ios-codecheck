@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController2: UIViewController {
+class DetailViewController: UIViewController {
     
     @IBOutlet weak var avatorImageView: UIImageView!
     
@@ -21,12 +21,12 @@ class ViewController2: UIViewController {
     @IBOutlet weak var forksCount: UILabel!
     @IBOutlet weak var issuesCount: UILabel!
     
-    var vc1: ViewController!
+    var searchViewController: SearchViewController!
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let repository = vc1.contentsArray[vc1.selectedIndex]
+        let repository = searchViewController.contentsArray[searchViewController.selectedIndex]
         
         languageLabel.text = "Written in \(repository["language"] as? String ?? "")"
         starsCount.text = "\(repository["stargazers_count"] as? Int ?? 0) stars"
@@ -39,7 +39,7 @@ class ViewController2: UIViewController {
     
     func getImage(){
         
-        let repository = vc1.contentsArray[vc1.selectedIndex]
+        let repository = searchViewController.contentsArray[searchViewController.selectedIndex]
         
         titleLabel.text = repository["full_name"] as? String
         
