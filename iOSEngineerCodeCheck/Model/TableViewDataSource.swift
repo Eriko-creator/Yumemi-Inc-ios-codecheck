@@ -11,18 +11,23 @@ import UIKit
 
 final class TableViewDataSource: NSObject, UITableViewDataSource{
     
-    ///contentsArrayに格納されているrepositoryの数だけセルを返す
+    ///シングルトンを作成
+    lazy var repositories = Repository(items: [])
+    lazy var selectedIndex: Int = 0
+    static let shared = TableViewDataSource()
+    
+    ///シングルトンに格納されているrepositoryの数だけセルを返す
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return githubAPI.contentsArray.count
+        let items = TableViewDataSource.shared.repositories.items
+        return items.count
     }
     
     ///セルにリポジトリ名、プロジェクト言語を表示する
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let repository = githubAPI.contentsArray[indexPath.row]
-        cell.textLabel?.text = repository["full_name"] as? String ?? ""
-        cell.detailTextLabel?.text = repository["language"] as? String ?? ""
-        cell.tag = indexPath.row
+        let repository = TableViewDataSource.shared.repositories.items[indexPath.row]
+        cell.textLabel?.text = repository.fullName
+        cell.detailTextLabel?.text = repository.language
         return cell
     }
 }
