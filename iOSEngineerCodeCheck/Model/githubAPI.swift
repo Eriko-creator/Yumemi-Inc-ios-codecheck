@@ -29,18 +29,6 @@ final class githubAPI{
                 print(error)
             }
         }
-//        let task = URLSession.shared.dataTask(with: url) { (data, res, err) in
-//            guard
-//                let data = data,
-//                let object = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-//                let items = object["items"] as? [[String: Any]]
-//            else {return}
-//            githubAPI.contentsArray = items
-//            DispatchQueue.main.async {
-//                completion()
-//            }
-//        }
-//        task.resume()
     }
     
     ///avatarImageのURLリクエストを投げてimageのデータを取得する
@@ -51,13 +39,5 @@ final class githubAPI{
             else {return}
             completion(image)
         }
-//        URLSession.shared.dataTask(with: url) { (data, response, error) in
-//            guard let data = data,
-//                  let image = UIImage(data: data)
-//            else {return}
-//            DispatchQueue.main.async {
-//                completion(image)
-//            }
-//        }.resume()
     }
 }
