@@ -16,7 +16,7 @@ final class TableViewDataSource: NSObject, UITableViewDataSource{
     lazy var selectedIndex: Int = 0
     static let shared = TableViewDataSource()
     
-    ///contentsArrayに格納されているrepositoryの数だけセルを返す
+    ///シングルトンに格納されているrepositoryの数だけセルを返す
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let items = TableViewDataSource.shared.repositories.items
         return items.count
