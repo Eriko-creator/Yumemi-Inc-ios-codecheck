@@ -14,8 +14,6 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     
     var contentsArray: [[String: Any]]=[]
     var task: URLSessionTask?
-    var searchWord: String!
-    var url: String!
     var selectedIndex: Int!
     
     override func viewDidLoad() {
@@ -38,12 +36,14 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     ///searchボタンがタップされた時に入力文字を用いてgitHubAPIにリクエストを投げ、
     ///tableViewをリロードして反映させる
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchWord = searchBar.text!
-        guard searchWord != nil else {return}
-        url = "https://api.github.com/search/repositories?q=\(searchWord!)"
-        task = URLSession.shared.dataTask(with: URL(string: url)!) { (data, res, err) in
+        guard let searchWord = searchBar.text,
+              !searchWord.isEmpty,
+              let url = URL(string: "https://api.github.com/search/repositories?q=\(searchWord)")
+        else {return}
+        task = URLSession.shared.dataTask(with: url) { (data, res, err) in
             guard
-                let object = try! JSONSerialization.jsonObject(with: data!) as? [String: Any],
+                let data = data,
+                let object = try! JSONSerialization.jsonObject(with: data) as? [String: Any],
                 let items = object["items"] as? [[String: Any]]
             else {return}
             self.contentsArray = items
@@ -56,8 +56,9 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     
     ///自身をdetailViewControllerに渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "Detail" else { return }
-        let detail = segue.destination as! DetailViewController
+        guard segue.identifier == "Detail",
+              let detail = segue.destination as? DetailViewController
+        else {return}
         detail.searchViewController = self
     }
     
