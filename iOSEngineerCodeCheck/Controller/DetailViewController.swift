@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
     
     @IBOutlet weak var avatorImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -23,7 +23,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ///searchViewControllerで取得したrepositoryの内容を反映させる
-        let repository = searchViewController.contentsArray[searchViewController.selectedIndex]
+        let repository = githubAPI.contentsArray[searchViewController.selectedIndex]
         languageLabel.text = "Written in \(repository["language"] as? String ?? "")"
         starsCount.text = "\(repository["stargazers_count"] as? Int ?? 0) stars"
         watchersCount.text = "\(repository["wachers_count"] as? Int ?? 0) watchers"
@@ -34,19 +34,15 @@ class DetailViewController: UIViewController {
     
     ///searchViewControllerで取得したrepository内のURLからavatorImageViewを取得して反映させる
     func getImage(){
-        let repository = searchViewController.contentsArray[searchViewController.selectedIndex]
+        let repository = githubAPI.contentsArray[searchViewController.selectedIndex]
         titleLabel.text = repository["full_name"] as? String
         guard let owner = repository["owner"] as? [String: Any],
               let imageURL = owner["avatar_url"] as? String,
               let url = URL(string: imageURL)
         else {return}
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let data = data,
-                  let image = UIImage(data: data)
-            else {return}
-            DispatchQueue.main.async {
-                self.avatorImageView.image = image
-            }
-        }.resume()
+        let github = githubAPI()
+        github.getAvatarImageOf(url){ (image) in
+            self.avatorImageView.image = image
+        }
     }
 }
