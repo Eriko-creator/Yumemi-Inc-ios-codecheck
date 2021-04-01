@@ -32,14 +32,6 @@ final class SearchViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    ///自身をdetailViewControllerに渡す
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "Detail",
-              let detail = segue.destination as? DetailViewController
-        else {return}
-        detail.searchViewController = self
-    }
 }
 
 extension SearchViewController: UISearchBarDelegate{
@@ -74,6 +66,9 @@ extension SearchViewController: UITableViewDelegate{
     ///DetailViewControllerに画面遷移する
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
-        performSegue(withIdentifier: "Detail", sender: self)
+        let storyboard = UIStoryboard(name: "DetailView", bundle: nil)
+        guard let detail = storyboard.instantiateViewController(identifier: "detail") as? DetailViewController else { return }
+        detail.searchViewController = self
+        navigationController?.pushViewController(detail, animated: true)
     }
 }
