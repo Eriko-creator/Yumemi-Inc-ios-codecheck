@@ -18,7 +18,7 @@ final class TableViewDataSource: NSObject, UITableViewDataSource{
     
     ///セルにリポジトリ名、プロジェクト言語を表示する
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let repository = githubAPI.contentsArray[indexPath.row]
         cell.textLabel?.text = repository["full_name"] as? String ?? ""
         cell.detailTextLabel?.text = repository["language"] as? String ?? ""

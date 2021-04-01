@@ -12,6 +12,7 @@ final class SearchViewController: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!{
         didSet{
+            tableView.register(TableViewCell.self, forCellReuseIdentifier: "cell")
             tableView.dataSource = dataSource
             tableView.delegate = self
         }

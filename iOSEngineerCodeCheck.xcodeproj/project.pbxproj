@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		34A77A862615AA2B00BBA64E /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77A852615AA2B00BBA64E /* TableViewDataSource.swift */; };
 		34A77A972615AD0900BBA64E /* githubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77A962615AD0900BBA64E /* githubAPI.swift */; };
+		34A77AC92615CC3A00BBA64E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77AC82615CC3900BBA64E /* TableViewCell.swift */; };
 		BF0A658D244F2A3B00280FA6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0A658C244F2A3B00280FA6 /* DetailViewController.swift */; };
 		BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945DE244DC5E80012785A /* AppDelegate.swift */; };
 		BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945E0244DC5E80012785A /* SceneDelegate.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		34A77A852615AA2B00BBA64E /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		34A77A962615AD0900BBA64E /* githubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = githubAPI.swift; sourceTree = "<group>"; };
+		34A77AC82615CC3900BBA64E /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		BF0A658C244F2A3B00280FA6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BFD945DB244DC5E80012785A /* iOSEngineerCodeCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSEngineerCodeCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD945DE244DC5E80012785A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				BFD945E4244DC5E80012785A /* Main.storyboard */,
 				BFD945E7244DC5EB0012785A /* Assets.xcassets */,
+				34A77AC82615CC3900BBA64E /* TableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				BF0A658D244F2A3B00280FA6 /* DetailViewController.swift in Sources */,
 				34A77A972615AD0900BBA64E /* githubAPI.swift in Sources */,
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,
+				34A77AC92615CC3A00BBA64E /* TableViewCell.swift in Sources */,
 				BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
