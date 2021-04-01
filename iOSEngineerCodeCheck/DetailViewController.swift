@@ -37,10 +37,13 @@ class DetailViewController: UIViewController {
         let repository = searchViewController.contentsArray[searchViewController.selectedIndex]
         titleLabel.text = repository["full_name"] as? String
         guard let owner = repository["owner"] as? [String: Any],
-              let imageURL = owner["avatar_url"] as? String
+              let imageURL = owner["avatar_url"] as? String,
+              let url = URL(string: imageURL)
         else {return}
-        URLSession.shared.dataTask(with: URL(string: imageURL)!) { (data, response, error) in
-            let image = UIImage(data: data!)!
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let data = data,
+                  let image = UIImage(data: data)
+            else {return}
             DispatchQueue.main.async {
                 self.avatorImageView.image = image
             }
