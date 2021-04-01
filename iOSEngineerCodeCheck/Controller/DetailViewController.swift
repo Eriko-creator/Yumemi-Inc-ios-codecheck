@@ -10,16 +10,20 @@ import UIKit
 
 final class DetailViewController: UIViewController {
     
-    @IBOutlet weak var avatorImageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var languageLabel: UILabel!
-    @IBOutlet weak var starsCount: UILabel!
-    @IBOutlet weak var watchersCount: UILabel!
-    @IBOutlet weak var forksCount: UILabel!
-    @IBOutlet weak var issuesCount: UILabel!
+    @IBOutlet private weak var avatorImageView: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var languageLabel: UILabel!
+    @IBOutlet private weak var starsCount: UILabel!
+    @IBOutlet private weak var watchersCount: UILabel!
+    @IBOutlet private weak var forksCount: UILabel!
+    @IBOutlet private weak var issuesCount: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpView()
+    }
+    
+    private func setUpView(){
         ///searchViewControllerで取得したrepositoryの内容を反映させる
         let tableViewDataSource = TableViewDataSource.shared
         let repository = tableViewDataSource.repositories.items[tableViewDataSource.selectedIndex]
@@ -34,7 +38,7 @@ final class DetailViewController: UIViewController {
     }
     
     ///searchViewControllerで取得したrepository内のURLからavatorImageViewを取得して反映させる
-    func getImage(from url: URL){
+    private func getImage(from url: URL){
         let github = githubAPI()
         github.getAvatarImageOf(url){ (image) in
             self.avatorImageView.image = image

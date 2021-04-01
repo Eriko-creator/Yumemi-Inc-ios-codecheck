@@ -10,14 +10,14 @@ import UIKit
 
 final class SearchViewController: UIViewController{
     
-    @IBOutlet weak var tableView: UITableView!{
+    @IBOutlet private weak var tableView: UITableView!{
         didSet{
             tableView.register(TableViewCell.self, forCellReuseIdentifier: "cell")
             tableView.dataSource = dataSource
             tableView.delegate = self
         }
     }
-    @IBOutlet weak var searchBar: UISearchBar!{
+    @IBOutlet private weak var searchBar: UISearchBar!{
         didSet{
             searchBar.text = "GitHubのリポジトリを検索できるよー"
             searchBar.delegate = self
