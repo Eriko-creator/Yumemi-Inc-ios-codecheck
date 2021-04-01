@@ -28,7 +28,6 @@ final class TableViewDataSource: NSObject, UITableViewDataSource{
         let repository = TableViewDataSource.shared.repositories.items[indexPath.row]
         cell.textLabel?.text = repository.fullName
         cell.detailTextLabel?.text = repository.language
-        cell.tag = indexPath.row
         return cell
     }
 }
