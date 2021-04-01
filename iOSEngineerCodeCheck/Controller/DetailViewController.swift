@@ -34,11 +34,11 @@ final class DetailViewController: UIViewController {
         issuesCount.text = "\(repository.openIssuesCount) open issues"
         titleLabel.text = repository.fullName
         guard let url = URL(string: repository.owner.avatarUrl) else {return}
-        getImage(from: url)
+        setImage(from: url)
     }
     
     ///searchViewControllerで取得したrepository内のURLからavatorImageViewを取得して反映させる
-    private func getImage(from url: URL){
+    private func setImage(from url: URL){
         let github = githubAPI()
         github.getAvatarImageOf(url){ (image) in
             self.avatorImageView.image = image
