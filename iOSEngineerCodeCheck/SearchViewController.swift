@@ -30,7 +30,8 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     
     ///入力文字が変更された時はAPI通信をしない
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        task?.cancel()
+        guard let task = task else {return}
+        task.cancel()
     }
     
     ///searchボタンがタップされた時に入力文字を用いてgitHubAPIにリクエストを投げ、
@@ -40,10 +41,10 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
               !searchWord.isEmpty,
               let url = URL(string: "https://api.github.com/search/repositories?q=\(searchWord)")
         else {return}
-        task = URLSession.shared.dataTask(with: url) { (data, res, err) in
+        let task = URLSession.shared.dataTask(with: url) { (data, res, err) in
             guard
                 let data = data,
-                let object = try! JSONSerialization.jsonObject(with: data) as? [String: Any],
+                let object = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
                 let items = object["items"] as? [[String: Any]]
             else {return}
             self.contentsArray = items
@@ -51,7 +52,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
                 self.tableView.reloadData()
             }
         }
-        task?.resume()
+        task.resume()
     }
     
     ///自身をdetailViewControllerに渡す
