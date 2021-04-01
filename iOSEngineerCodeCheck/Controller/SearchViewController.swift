@@ -26,8 +26,6 @@ final class SearchViewController: UIViewController{
     
     private let github = githubAPI()
     private var dataSource = TableViewDataSource()
-    var task: URLSessionTask?
-    var selectedIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +38,6 @@ extension SearchViewController: UISearchBarDelegate{
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         searchBar.text = ""
         return true
-    }
-    
-    ///入力文字が変更された時はAPI通信をしない
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard let task = task else {return}
-        task.cancel()
     }
     
     ///searchボタンがタップされた時に入力文字を用いてgitHubAPIにリクエストを投げ、
@@ -62,13 +54,12 @@ extension SearchViewController: UISearchBarDelegate{
 
 extension SearchViewController: UITableViewDelegate{
     
-    ///選択したセルのindexPath.row番目の数字をselectedIndexに格納する
+    ///選択したセルのindexPath.row番目の数字をシングルトンに格納する
     ///DetailViewControllerに画面遷移する
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedIndex = indexPath.row
+        TableViewDataSource.shared.selectedIndex = indexPath.row
         let storyboard = UIStoryboard(name: "DetailView", bundle: nil)
         guard let detail = storyboard.instantiateViewController(identifier: "detail") as? DetailViewController else { return }
-        detail.searchViewController = self
         navigationController?.pushViewController(detail, animated: true)
     }
 }
