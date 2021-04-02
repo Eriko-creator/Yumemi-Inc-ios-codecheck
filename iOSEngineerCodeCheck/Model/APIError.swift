@@ -13,7 +13,6 @@ enum APIError: Error{
     case searchWordEmpty
     case invalidURL
     case networkError
-    case decodingError
     case unknown
     
     var title: String{
@@ -35,8 +34,6 @@ enum APIError: Error{
             return "別の検索ワードを試してください。検索ワードには半角英数字のみお使いいただけます。"
         case .networkError:
             return "接続環境の良いところでもう一度お試しください。"
-        case .decodingError:
-            return "デコードに失敗しました。"
         case .unknown:
             return "不明なエラーです。"
         }
