@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 enum APIError: Error{
     case searchWordEmpty
