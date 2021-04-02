@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Alamofire
 
-struct githubAPI{
+final class GithubAPI{
     
     ///githubAPIにリクエストを投げてリポジトリのデータを取得する
     static func getRepositoryDataOf(_ searchWord:String, completion:@escaping(Result<(),APIError>)->Void) throws{

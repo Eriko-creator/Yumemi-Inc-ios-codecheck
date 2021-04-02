@@ -24,7 +24,6 @@ final class SearchViewController: UIViewController{
         }
     }
     
-    private let github = githubAPI()
     private var dataSource = TableViewDataSource()
     
     override func viewDidLoad() {
@@ -33,7 +32,7 @@ final class SearchViewController: UIViewController{
     
     private func getRepositoryData(searchWord: String){
         do{
-            try githubAPI.getRepositoryDataOf(searchWord){ [unowned self] (result) in
+            try GithubAPI.getRepositoryDataOf(searchWord){ [unowned self] (result) in
                 switch result{
                 case .success(()):
                     tableView.reloadData()
