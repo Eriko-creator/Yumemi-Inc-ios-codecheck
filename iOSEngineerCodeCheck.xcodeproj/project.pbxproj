@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		34A77A862615AA2B00BBA64E /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77A852615AA2B00BBA64E /* TableViewDataSource.swift */; };
-		34A77A972615AD0900BBA64E /* githubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77A962615AD0900BBA64E /* githubAPI.swift */; };
+		34A77A972615AD0900BBA64E /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77A962615AD0900BBA64E /* GithubAPI.swift */; };
 		34A77AC92615CC3A00BBA64E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77AC82615CC3900BBA64E /* TableViewCell.swift */; };
 		34A77AD72615F56F00BBA64E /* SearchView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A77AD62615F56F00BBA64E /* SearchView.storyboard */; };
 		34A77AE82615FB8600BBA64E /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34A77AE72615FB8600BBA64E /* DetailView.storyboard */; };
@@ -45,7 +45,7 @@
 
 /* Begin PBXFileReference section */
 		34A77A852615AA2B00BBA64E /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
-		34A77A962615AD0900BBA64E /* githubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = githubAPI.swift; sourceTree = "<group>"; };
+		34A77A962615AD0900BBA64E /* GithubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
 		34A77AC82615CC3900BBA64E /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		34A77AD62615F56F00BBA64E /* SearchView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchView.storyboard; sourceTree = "<group>"; };
 		34A77AE72615FB8600BBA64E /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 		34A77A842615A9B400BBA64E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				34A77A962615AD0900BBA64E /* githubAPI.swift */,
+				34A77A962615AD0900BBA64E /* GithubAPI.swift */,
 				34A77A852615AA2B00BBA64E /* TableViewDataSource.swift */,
 				34A77B0E26160CCF00BBA64E /* Repository.swift */,
 				34A77B2A2616303E00BBA64E /* APIError.swift */,
@@ -337,7 +337,7 @@
 				34A77A862615AA2B00BBA64E /* TableViewDataSource.swift in Sources */,
 				BF0A658D244F2A3B00280FA6 /* DetailViewController.swift in Sources */,
 				34A77B0F26160CCF00BBA64E /* Repository.swift in Sources */,
-				34A77A972615AD0900BBA64E /* githubAPI.swift in Sources */,
+				34A77A972615AD0900BBA64E /* GithubAPI.swift in Sources */,
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,
 				34A77AC92615CC3A00BBA64E /* TableViewCell.swift in Sources */,
 				BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */,
