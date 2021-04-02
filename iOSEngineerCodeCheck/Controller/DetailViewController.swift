@@ -27,20 +27,23 @@ final class DetailViewController: UIViewController {
         ///searchViewControllerで取得したrepositoryの内容を反映させる
         let tableViewDataSource = TableViewDataSource.shared
         let repository = tableViewDataSource.repositories.items[tableViewDataSource.selectedIndex]
-        languageLabel.text = "Written in \(repository.language)"
         starsCount.text = "\(repository.stargazersCount) stars"
         watchersCount.text = "\(repository.watchersCount) watchers"
         forksCount.text = "\(repository.forksCount) forks"
         issuesCount.text = "\(repository.openIssuesCount) open issues"
         titleLabel.text = repository.fullName
+        if let language = repository.language{
+            languageLabel.text = "Written in \(language)"
+        }else{
+            languageLabel.text = ""
+        }
         guard let url = URL(string: repository.owner.avatarUrl) else {return}
-        getImage(from: url)
+        setImage(from: url)
     }
     
     ///searchViewControllerで取得したrepository内のURLからavatorImageViewを取得して反映させる
-    private func getImage(from url: URL){
-        let github = githubAPI()
-        github.getAvatarImageOf(url){ (image) in
+    private func setImage(from url: URL){
+        GithubAPI.getAvatarImageOf(url){ (image) in
             self.avatorImageView.image = image
         }
     }

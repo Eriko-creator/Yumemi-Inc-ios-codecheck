@@ -24,11 +24,31 @@ final class SearchViewController: UIViewController{
         }
     }
     
-    private let github = githubAPI()
     private var dataSource = TableViewDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    private func getRepositoryData(searchWord: String){
+        do{
+            try GithubAPI.getRepositoryDataOf(searchWord){ [unowned self] (result) in
+                switch result{
+                case .success(()):
+                    tableView.reloadData()
+                case .failure(let error):
+                    if error == .networkError{
+                        UIAlertController.showAPIErrorAlert(error: .networkError, self)
+                    }else{
+                        UIAlertController.showAPIErrorAlert(error: .unknown, self)
+                    }
+                }
+            }
+        }catch APIError.invalidURL{
+            UIAlertController.showAPIErrorAlert(error: .invalidURL, self)
+        }catch{
+            UIAlertController.showAPIErrorAlert(error: .unknown, self)
+        }
     }
 }
 
@@ -45,10 +65,8 @@ extension SearchViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchWord = searchBar.text,
               !searchWord.isEmpty
-        else {return}
-        github.getRepositoryDataOf(searchWord) {
-            self.tableView.reloadData()
-        }
+        else { return UIAlertController.showAPIErrorAlert(error: .searchWordEmpty, self) }
+        getRepositoryData(searchWord: searchWord)
     }
 }
 
