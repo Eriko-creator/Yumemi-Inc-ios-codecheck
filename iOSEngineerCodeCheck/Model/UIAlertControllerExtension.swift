@@ -1,5 +1,5 @@
 //
-//  AlertUtility.swift
+//  UIAlertControllerExtension.swift
 //  iOSEngineerCodeCheck
 //
 //  Created by 肥沼英里 on 2021/04/02.
@@ -9,8 +9,7 @@
 import Foundation
 import UIKit
 
-struct AlertUtility{
-    
+extension UIAlertController{
     static func showAPIErrorAlert(error: APIError, _ viewController: UIViewController){
         let title = error.title
         let message = error.description

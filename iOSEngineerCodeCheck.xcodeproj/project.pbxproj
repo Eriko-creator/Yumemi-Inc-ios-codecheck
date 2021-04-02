@@ -15,11 +15,11 @@
 		34A77B0F26160CCF00BBA64E /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77B0E26160CCF00BBA64E /* Repository.swift */; };
 		34A77B1526160D4B00BBA64E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 34A77B1426160D4B00BBA64E /* Alamofire */; };
 		34A77B2B2616303E00BBA64E /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77B2A2616303E00BBA64E /* APIError.swift */; };
-		34A77B382616CE1200BBA64E /* AlertUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77B372616CE1200BBA64E /* AlertUtility.swift */; };
+		34A77B382616CE1200BBA64E /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77B372616CE1200BBA64E /* UIAlertControllerExtension.swift */; };
+		34A77B3F2617284A00BBA64E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945E2244DC5E80012785A /* SearchViewController.swift */; };
 		BF0A658D244F2A3B00280FA6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0A658C244F2A3B00280FA6 /* DetailViewController.swift */; };
 		BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945DE244DC5E80012785A /* AppDelegate.swift */; };
 		BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945E0244DC5E80012785A /* SceneDelegate.swift */; };
-		BFD945E3244DC5E80012785A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945E2244DC5E80012785A /* SearchViewController.swift */; };
 		BFD945E8244DC5EB0012785A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFD945E7244DC5EB0012785A /* Assets.xcassets */; };
 		BFD945EB244DC5EB0012785A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD945E9244DC5EB0012785A /* LaunchScreen.storyboard */; };
 		BFD945F6244DC5EB0012785A /* iOSEngineerCodeCheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945F5244DC5EB0012785A /* iOSEngineerCodeCheckTests.swift */; };
@@ -51,7 +51,7 @@
 		34A77AE72615FB8600BBA64E /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
 		34A77B0E26160CCF00BBA64E /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		34A77B2A2616303E00BBA64E /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
-		34A77B372616CE1200BBA64E /* AlertUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtility.swift; sourceTree = "<group>"; };
+		34A77B372616CE1200BBA64E /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		BF0A658C244F2A3B00280FA6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BFD945DB244DC5E80012785A /* iOSEngineerCodeCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSEngineerCodeCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD945DE244DC5E80012785A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 				34A77A852615AA2B00BBA64E /* TableViewDataSource.swift */,
 				34A77B0E26160CCF00BBA64E /* Repository.swift */,
 				34A77B2A2616303E00BBA64E /* APIError.swift */,
-				34A77B372616CE1200BBA64E /* AlertUtility.swift */,
+				34A77B372616CE1200BBA64E /* UIAlertControllerExtension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -332,8 +332,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34A77B3F2617284A00BBA64E /* SearchViewController.swift in Sources */,
 				34A77B2B2616303E00BBA64E /* APIError.swift in Sources */,
-				BFD945E3244DC5E80012785A /* SearchViewController.swift in Sources */,
 				34A77A862615AA2B00BBA64E /* TableViewDataSource.swift in Sources */,
 				BF0A658D244F2A3B00280FA6 /* DetailViewController.swift in Sources */,
 				34A77B0F26160CCF00BBA64E /* Repository.swift in Sources */,
@@ -341,7 +341,7 @@
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,
 				34A77AC92615CC3A00BBA64E /* TableViewCell.swift in Sources */,
 				BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */,
-				34A77B382616CE1200BBA64E /* AlertUtility.swift in Sources */,
+				34A77B382616CE1200BBA64E /* UIAlertControllerExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

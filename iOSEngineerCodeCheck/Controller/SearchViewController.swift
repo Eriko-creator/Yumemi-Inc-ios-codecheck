@@ -39,16 +39,16 @@ final class SearchViewController: UIViewController{
                     tableView.reloadData()
                 case .failure(let error):
                     if error == .networkError{
-                        AlertUtility.showAPIErrorAlert(error: .networkError, self)
+                        UIAlertController.showAPIErrorAlert(error: .networkError, self)
                     }else{
-                        AlertUtility.showAPIErrorAlert(error: .unknown, self)
+                        UIAlertController.showAPIErrorAlert(error: .unknown, self)
                     }
                 }
             }
         }catch APIError.invalidURL{
-            AlertUtility.showAPIErrorAlert(error: .invalidURL, self)
+            UIAlertController.showAPIErrorAlert(error: .invalidURL, self)
         }catch{
-            AlertUtility.showAPIErrorAlert(error: .unknown, self)
+            UIAlertController.showAPIErrorAlert(error: .unknown, self)
         }
     }
 }
@@ -66,7 +66,7 @@ extension SearchViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchWord = searchBar.text,
               !searchWord.isEmpty
-        else { return AlertUtility.showAPIErrorAlert(error: .searchWordEmpty, self) }
+        else { return UIAlertController.showAPIErrorAlert(error: .searchWordEmpty, self) }
         getRepositoryData(searchWord: searchWord)
     }
 }
