@@ -37,7 +37,9 @@
                             <constraint firstItem="ol8-ze-bxj" firstAttribute="leading" secondItem="C5Y-42-5k3" secondAttribute="leading" id="exm-8Q-VMf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="GitHub Search" id="NTW-OE-Spt"/>
+                    <navigationItem key="navigationItem" title="GitHub Search" id="NTW-OE-Spt">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="een-RH-Gxx"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="hEP-zS-g0I" id="pas-Ac-KyB"/>
                         <outlet property="tableView" destination="ol8-ze-bxj" id="th7-Lw-3aG"/>
