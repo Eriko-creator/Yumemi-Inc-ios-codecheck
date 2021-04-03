@@ -31,23 +31,20 @@ final class SearchViewController: UIViewController{
     }
     
     private func getRepositoryData(searchWord: String){
-        do{
-            try GithubAPI.getRepositoryDataOf(searchWord){ [unowned self] (result) in
-                switch result{
-                case .success(()):
-                    tableView.reloadData()
-                case .failure(let error):
-                    if error == .networkError{
-                        UIAlertController.showAPIErrorAlert(error: .networkError, self)
-                    }else{
-                        UIAlertController.showAPIErrorAlert(error: .unknown, self)
-                    }
+        GithubAPI.getRepositoryDataOf(searchWord){ [unowned self] (result) in
+            switch result{
+            case .success(()):
+                tableView.reloadData()
+            case .failure(let error):
+                switch error{
+                case .networkError:
+                    return UIAlertController.showAPIErrorAlert(error: .networkError, self)
+                case .invalidURL:
+                    return UIAlertController.showAPIErrorAlert(error: .invalidURL, self)
+                default:
+                    return UIAlertController.showAPIErrorAlert(error: .unknown, self)
                 }
             }
-        }catch APIError.invalidURL{
-            UIAlertController.showAPIErrorAlert(error: .invalidURL, self)
-        }catch{
-            UIAlertController.showAPIErrorAlert(error: .unknown, self)
         }
     }
 }

@@ -13,9 +13,9 @@ import Alamofire
 final class GithubAPI{
     
     ///githubAPIにリクエストを投げてリポジトリのデータを取得する
-    static func getRepositoryDataOf(_ searchWord:String, completion:@escaping(Result<(),APIError>)->Void) throws{
+    static func getRepositoryDataOf(_ searchWord:String, completion:@escaping(Result<(),APIError>)->Void){
         guard let url = URL(string: "https://api.github.com/search/repositories?q=\(searchWord)")
-        else { throw APIError.invalidURL }
+        else { return completion(.failure(.invalidURL)) }
         AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON { (response) in
             do{
                 guard let data = response.data
