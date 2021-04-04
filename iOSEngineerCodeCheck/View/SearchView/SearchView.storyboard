@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--GitHub Search-->
         <scene sceneID="IfU-h6-v13">
             <objects>
                 <viewController id="kKh-H7-cqw" customClass="SearchViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,9 +20,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ol8-ze-bxj">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="hEP-zS-g0I">
+                                <searchBar key="tableHeaderView" contentMode="redraw" barStyle="black" id="hEP-zS-g0I">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
                             </tableView>
@@ -36,7 +37,9 @@
                             <constraint firstItem="ol8-ze-bxj" firstAttribute="leading" secondItem="C5Y-42-5k3" secondAttribute="leading" id="exm-8Q-VMf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="NTW-OE-Spt"/>
+                    <navigationItem key="navigationItem" title="GitHub Search" id="NTW-OE-Spt">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="een-RH-Gxx"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="hEP-zS-g0I" id="pas-Ac-KyB"/>
                         <outlet property="tableView" destination="ol8-ze-bxj" id="th7-Lw-3aG"/>
@@ -51,9 +54,15 @@
             <objects>
                 <navigationController storyboardIdentifier="searchViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hwa-I5-CAo" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tnb-BK-guD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="tnb-BK-guD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

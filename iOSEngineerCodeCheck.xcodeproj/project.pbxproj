@@ -17,6 +17,7 @@
 		34A77B2B2616303E00BBA64E /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77B2A2616303E00BBA64E /* APIError.swift */; };
 		34A77B382616CE1200BBA64E /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77B372616CE1200BBA64E /* UIAlertControllerExtension.swift */; };
 		34A77B3F2617284A00BBA64E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945E2244DC5E80012785A /* SearchViewController.swift */; };
+		34A77B612619E97900BBA64E /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77B602619E97900BBA64E /* UIViewExtension.swift */; };
 		BF0A658D244F2A3B00280FA6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0A658C244F2A3B00280FA6 /* DetailViewController.swift */; };
 		BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945DE244DC5E80012785A /* AppDelegate.swift */; };
 		BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945E0244DC5E80012785A /* SceneDelegate.swift */; };
@@ -52,6 +53,7 @@
 		34A77B0E26160CCF00BBA64E /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		34A77B2A2616303E00BBA64E /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		34A77B372616CE1200BBA64E /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
+		34A77B602619E97900BBA64E /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		BF0A658C244F2A3B00280FA6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BFD945DB244DC5E80012785A /* iOSEngineerCodeCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSEngineerCodeCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD945DE244DC5E80012785A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				34A77ACD2615F41500BBA64E /* SearchView */,
 				34A77AE62615FB6D00BBA64E /* DetailView */,
 				BFD945E7244DC5EB0012785A /* Assets.xcassets */,
+				34A77B602619E97900BBA64E /* UIViewExtension.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -260,7 +263,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "YUMEMI Inc.";
 				TargetAttributes = {
 					BFD945DA244DC5E80012785A = {
@@ -335,6 +338,7 @@
 				34A77B3F2617284A00BBA64E /* SearchViewController.swift in Sources */,
 				34A77B2B2616303E00BBA64E /* APIError.swift in Sources */,
 				34A77A862615AA2B00BBA64E /* TableViewDataSource.swift in Sources */,
+				34A77B612619E97900BBA64E /* UIViewExtension.swift in Sources */,
 				BF0A658D244F2A3B00280FA6 /* DetailViewController.swift in Sources */,
 				34A77B0F26160CCF00BBA64E /* Repository.swift in Sources */,
 				34A77A972615AD0900BBA64E /* GithubAPI.swift in Sources */,
@@ -414,6 +418,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -474,6 +479,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
