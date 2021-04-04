@@ -17,10 +17,12 @@ final class DetailViewController: UIViewController {
     @IBOutlet private weak var watchersCount: UILabel!
     @IBOutlet private weak var forksCount: UILabel!
     @IBOutlet private weak var issuesCount: UILabel!
+    @IBOutlet private weak var goToGithubButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
+        setUpButton()
     }
     
     private func setUpView(){
@@ -41,10 +43,20 @@ final class DetailViewController: UIViewController {
         setImage(from: url)
     }
     
+    private func setUpButton(){
+        goToGithubButton.addTarget(self, action: #selector(goToGithubViewController), for: .touchUpInside)
+    }
+    
     ///searchViewControllerで取得したrepository内のURLからavatorImageViewを取得して反映させる
     private func setImage(from url: URL){
         GithubAPI.getAvatarImageOf(url){ (image) in
             self.avatorImageView.image = image
         }
+    }
+    
+    ///githubページに遷移するボタンのメソッド
+    @objc private func goToGithubViewController(){
+        let github = GithubViewController()
+        self.navigationController?.pushViewController(github, animated: true)
     }
 }
