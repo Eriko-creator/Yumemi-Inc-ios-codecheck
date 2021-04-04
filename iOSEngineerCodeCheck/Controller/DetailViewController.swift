@@ -17,7 +17,7 @@ final class DetailViewController: UIViewController {
     @IBOutlet private weak var watchersCount: UILabel!
     @IBOutlet private weak var forksCount: UILabel!
     @IBOutlet private weak var issuesCount: UILabel!
-    @IBOutlet weak var goToGithubButton: UIButton!
+    @IBOutlet private weak var goToGithubButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +55,7 @@ final class DetailViewController: UIViewController {
     }
     
     ///githubページに遷移するボタンのメソッド
-    @objc func goToGithubViewController(){
+    @objc private func goToGithubViewController(){
         let github = GithubViewController()
         self.navigationController?.pushViewController(github, animated: true)
     }
