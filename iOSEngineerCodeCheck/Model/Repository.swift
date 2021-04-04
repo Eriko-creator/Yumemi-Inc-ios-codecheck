@@ -20,6 +20,7 @@ struct items: Codable{
     let forksCount: Int
     let openIssuesCount: Int
     let owner: owner
+    let htmlUrl: String
     
     enum CodingKeys: String, CodingKey{
         case fullName = "full_name"
@@ -29,6 +30,7 @@ struct items: Codable{
         case forksCount = "forks_count"
         case openIssuesCount = "open_issues_count"
         case owner
+        case htmlUrl = "html_url"
     }
 }
 
