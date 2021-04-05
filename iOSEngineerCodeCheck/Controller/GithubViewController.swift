@@ -20,6 +20,7 @@ final class GithubViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         showGithubPage()
+        githubView.navigationDelegate = self
     }
     
     private func showGithubPage(){
@@ -27,5 +28,26 @@ final class GithubViewController: UIViewController {
         let repository = datasource.repositories.items[datasource.selectedIndex]
         guard let url = URL(string: repository.htmlUrl) else { return }
         self.githubView.load(URLRequest(url: url))
+    }
+}
+
+extension GithubViewController: WKNavigationDelegate{
+    
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        let storyboard = UIStoryboard(name: "LoadingView", bundle: nil)
+        guard let load = storyboard.instantiateViewController(identifier: "load") as? LoadingViewController else { return }
+        self.present(load, animated: false, completion: nil)
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        NotificationCenter.default.post(name: .finishLoading, object: nil)
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        NotificationCenter.default.post(name: .finishLoading, object: nil)
+    }
+    
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        NotificationCenter.default.post(name: .finishLoading, object: nil)
     }
 }
