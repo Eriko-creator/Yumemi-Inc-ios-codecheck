@@ -11,9 +11,9 @@ import Lottie
 
 final class LoadingViewController: UIViewController {
 
-    @IBOutlet weak var popupView: UIView!
-    @IBOutlet weak var instructionLabel: UILabel!
-    let animationView = AnimationView(name: "1846-material-activity-indicator")
+    @IBOutlet private weak var popupView: UIView!
+    @IBOutlet private weak var instructionLabel: UILabel!
+    private let animationView = AnimationView(name: "1846-material-activity-indicator")
     
     override func viewDidLoad() {
         super.viewDidLoad()
