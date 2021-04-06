@@ -40,9 +40,9 @@ final class SearchViewController: UIViewController{
             switch result{
             case .success(()):
                 tableView.reloadData()
-                NotificationCenter.default.post(name: .finishLoading, object: nil)
+                load.dismiss(animated: false, completion: nil)
             case .failure(let error):
-                NotificationCenter.default.post(name: .finishLoading, object: nil)
+                load.dismiss(animated: false, completion: nil)
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.5){
                     switch error{
                     case .networkError:

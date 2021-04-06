@@ -19,7 +19,6 @@ final class LoadingViewController: UIViewController {
         super.viewDidLoad()
         setUpAnimationView()
         startAnimating()
-        NotificationCenter.default.addObserver(self, selector: #selector(finishAnimating), name: .finishLoading, object: nil)
     }
     
     private func setUpAnimationView(){
@@ -40,11 +39,7 @@ final class LoadingViewController: UIViewController {
         animationView.play()
     }
     
-    @objc private func finishAnimating(){
-        self.dismiss(animated: false, completion: nil)
+    static func makeFromStoryBoard() -> LoadingViewController {
+        UIStoryboard(name: "LoadingView", bundle: nil).instantiateViewController(identifier: "load") as! LoadingViewController
     }
-}
-
-extension Notification.Name{
-    static let finishLoading = Notification.Name("finishLoading")
 }

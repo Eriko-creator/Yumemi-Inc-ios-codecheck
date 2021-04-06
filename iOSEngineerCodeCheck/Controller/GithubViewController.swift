@@ -12,6 +12,7 @@ import WebKit
 final class GithubViewController: UIViewController {
     
     private let githubView = WKWebView(frame: .zero)
+    private let load = LoadingViewController.makeFromStoryBoard()
     
     override func loadView() {
         self.view = githubView
@@ -34,20 +35,18 @@ final class GithubViewController: UIViewController {
 extension GithubViewController: WKNavigationDelegate{
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        let storyboard = UIStoryboard(name: "LoadingView", bundle: nil)
-        guard let load = storyboard.instantiateViewController(identifier: "load") as? LoadingViewController else { return }
         self.present(load, animated: false, completion: nil)
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        NotificationCenter.default.post(name: .finishLoading, object: nil)
+        load.dismiss(animated: false, completion: nil)
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        NotificationCenter.default.post(name: .finishLoading, object: nil)
+        load.dismiss(animated: false, completion: nil)
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        NotificationCenter.default.post(name: .finishLoading, object: nil)
+        load.dismiss(animated: false, completion: nil)
     }
 }
