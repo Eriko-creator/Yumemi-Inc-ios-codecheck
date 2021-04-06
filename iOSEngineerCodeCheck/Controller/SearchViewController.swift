@@ -32,8 +32,7 @@ final class SearchViewController: UIViewController{
     
     private func getRepositoryData(searchWord: String){
         ///Loading画面を表示
-        let storyboard = UIStoryboard(name: "LoadingView", bundle: nil)
-        guard let load = storyboard.instantiateViewController(identifier: "load") as? LoadingViewController else { return }
+        let load = LoadingViewController.makeFromStoryBoard()
         self.present(load, animated: false, completion: nil)
         ///API通信を行う、エラー処理
         GithubAPI.getRepositoryDataOf(searchWord){ [unowned self] (result) in
