@@ -39,7 +39,7 @@ final class LoadingViewController: UIViewController {
         animationView.play()
     }
     
-    static func makeFromStoryBoard() -> LoadingViewController {
+    static func makeFromStoryboard() -> LoadingViewController {
         UIStoryboard(name: "LoadingView", bundle: nil).instantiateViewController(identifier: "load") as! LoadingViewController
     }
 }

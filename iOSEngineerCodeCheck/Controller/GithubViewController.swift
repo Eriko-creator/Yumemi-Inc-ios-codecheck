@@ -12,7 +12,7 @@ import WebKit
 final class GithubViewController: UIViewController {
     
     private let githubView = WKWebView(frame: .zero)
-    private let load = LoadingViewController.makeFromStoryBoard()
+    private let load = LoadingViewController.makeFromStoryboard()
     
     override func loadView() {
         self.view = githubView
