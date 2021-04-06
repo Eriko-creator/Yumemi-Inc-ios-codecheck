@@ -41,8 +41,7 @@ final class SearchViewController: UIViewController{
                 tableView.reloadData()
                 load.dismiss(animated: false, completion: nil)
             case .failure(let error):
-                load.dismiss(animated: false, completion: nil)
-                DispatchQueue.main.asyncAfter(deadline: .now()+0.5){
+                load.dismiss(animated: false) {
                     error.showAlert(from: self)
                 }
             }
