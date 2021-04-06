@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oJN-Dm-bL3">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Loading View Controller-->
+        <scene sceneID="Q0C-XV-z3h">
+            <objects>
+                <viewController storyboardIdentifier="load" id="oJN-Dm-bL3" customClass="LoadingViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sXC-WU-6wb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2w3-GV-wLQ">
+                                <rect key="frame" x="52" y="341" width="310.5" height="224"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0VD-4y-OHq">
+                                        <rect key="frame" x="20" y="20" width="270.5" height="26"/>
+                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="0VD-4y-OHq" firstAttribute="top" secondItem="2w3-GV-wLQ" secondAttribute="top" constant="20" id="Urn-fa-WJ9"/>
+                                    <constraint firstAttribute="trailing" secondItem="0VD-4y-OHq" secondAttribute="trailing" constant="20" id="ffy-fK-m9p"/>
+                                    <constraint firstItem="0VD-4y-OHq" firstAttribute="leading" secondItem="2w3-GV-wLQ" secondAttribute="leading" constant="20" id="i7p-5T-P0j"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="68f-LE-26x"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20225342058420273" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="2w3-GV-wLQ" firstAttribute="width" secondItem="sXC-WU-6wb" secondAttribute="width" multiplier="0.75" id="Y6M-j5-VN2"/>
+                            <constraint firstItem="2w3-GV-wLQ" firstAttribute="height" secondItem="sXC-WU-6wb" secondAttribute="height" multiplier="0.25" id="fzC-Sk-q2g"/>
+                            <constraint firstItem="2w3-GV-wLQ" firstAttribute="centerX" secondItem="68f-LE-26x" secondAttribute="centerX" id="hZj-yu-EZV"/>
+                            <constraint firstItem="2w3-GV-wLQ" firstAttribute="centerY" secondItem="68f-LE-26x" secondAttribute="centerY" id="wP3-ZY-2r8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="instructionLabel" destination="0VD-4y-OHq" id="S4z-dG-ID0"/>
+                        <outlet property="popupView" destination="2w3-GV-wLQ" id="5Zh-tU-Qub"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="msr-yW-3h5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-10.144927536231885" y="35.491071428571423"/>
+        </scene>
+    </scenes>
+</document>

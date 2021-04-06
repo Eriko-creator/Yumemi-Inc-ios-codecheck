@@ -31,18 +31,18 @@ final class SearchViewController: UIViewController{
     }
     
     private func getRepositoryData(searchWord: String){
+        ///Loading画面を表示
+        let load = LoadingViewController.makeFromStoryboard()
+        self.present(load, animated: false, completion: nil)
+        ///API通信を行う、エラー処理
         GithubAPI.getRepositoryDataOf(searchWord){ [unowned self] (result) in
             switch result{
             case .success(()):
                 tableView.reloadData()
+                load.dismiss(animated: false, completion: nil)
             case .failure(let error):
-                switch error{
-                case .networkError:
-                    return UIAlertController.showAPIErrorAlert(error: .networkError, self)
-                case .invalidURL:
-                    return UIAlertController.showAPIErrorAlert(error: .invalidURL, self)
-                default:
-                    return UIAlertController.showAPIErrorAlert(error: .unknown, self)
+                load.dismiss(animated: false) {
+                    error.showAlert(from: self)
                 }
             }
         }
