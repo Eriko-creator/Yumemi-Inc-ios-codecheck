@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum APIError: Error{
     case searchWordEmpty
@@ -36,5 +37,9 @@ enum APIError: Error{
         case .unknown:
             return "不明なエラーです。"
         }
+    }
+    
+    func showAlert(from: UIViewController){
+        UIAlertController.showAPIErrorAlert(error: self, from)
     }
 }

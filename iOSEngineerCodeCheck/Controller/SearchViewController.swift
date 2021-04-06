@@ -44,14 +44,7 @@ final class SearchViewController: UIViewController{
             case .failure(let error):
                 load.dismiss(animated: false, completion: nil)
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.5){
-                    switch error{
-                    case .networkError:
-                        return UIAlertController.showAPIErrorAlert(error: .networkError, self)
-                    case .invalidURL:
-                        return UIAlertController.showAPIErrorAlert(error: .invalidURL, self)
-                    default:
-                        return UIAlertController.showAPIErrorAlert(error: .unknown, self)
-                    }
+                    error.showAlert(from: self)
                 }
             }
         }
