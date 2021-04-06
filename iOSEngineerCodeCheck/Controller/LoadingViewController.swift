@@ -23,12 +23,17 @@ final class LoadingViewController: UIViewController {
     }
     
     private func setUpAnimationView(){
-        animationView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        animationView.frame = CGRect(x: 0, y: instructionLabel.frame.maxY+10, width: popupView.frame.width, height: popupView.frame.height-instructionLabel.frame.height-50)
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        popupView.addSubview(animationView)
+        NSLayoutConstraint.activate([
+            animationView.centerXAnchor.constraint(equalTo: popupView.centerXAnchor),
+            animationView.widthAnchor.constraint(equalTo: popupView.widthAnchor),
+            animationView.topAnchor.constraint(equalTo: instructionLabel.bottomAnchor, constant: 10),
+            animationView.bottomAnchor.constraint(equalTo: popupView.bottomAnchor, constant: -20)
+        ])
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = .loop
         animationView.animationSpeed = 1
-        popupView.addSubview(animationView)
     }
     
     private func startAnimating(){
