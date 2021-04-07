@@ -49,8 +49,14 @@ final class DetailViewController: UIViewController {
     
     ///searchViewControllerで取得したrepository内のURLからavatorImageViewを取得して反映させる
     private func setImage(from url: URL){
-        GithubAPI.getAvatarImageOf(url){ (image) in
-            self.avatorImageView.image = image
+        GithubAPI.GetAvatarImageData.request { (result) in
+            switch result{
+            case .success(let data):
+                let image = UIImage(data: data)
+                self.avatorImageView.image = image
+            case .failure(let error):
+                print(error)
+            }
         }
     }
     

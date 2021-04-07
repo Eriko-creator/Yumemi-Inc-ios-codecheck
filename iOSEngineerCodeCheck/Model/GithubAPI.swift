@@ -7,44 +7,61 @@
 //
 
 import Foundation
-import UIKit
-import Alamofire
 
-final class GithubAPI{
+protocol GithubAPIConfigure: APIConfigure{
+    associatedtype JsonExport: Codable
+    static func request(completion: @escaping((Result<JsonExport,APIError>)->Void))
+}
+
+extension GithubAPIConfigure{
     
-    ///githubAPIにリクエストを投げてリポジトリのデータを取得する
-    static func getRepositoryDataOf(_ searchWord:String, completion:@escaping(Result<(),APIError>)->Void){
-        guard let url = URL(string: "https://api.github.com/search/repositories?q=\(searchWord)")
-        else { return completion(.failure(.invalidURL)) }
-        AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON { (response) in
+    static func request(completion: @escaping((Result<JsonExport,APIError>)->Void)){
+        request { (result) in
             do{
-                guard let data = response.data
-                else { throw APIError.networkError }
-                let result = try JSONDecoder().decode(Repository.self, from: data)
-                //シングルトンに値を格納する
-                let tableViewDatasource = TableViewDataSource.shared
-                tableViewDatasource.repositories = result
-                DispatchQueue.main.async {
-                    completion(.success(()))
+                switch result{
+                case .success(let data):
+                    let finalResult = try JSONDecoder().decode(JsonExport.self, from: data)
+                    completion(.success(finalResult))
+                case .failure(let error):
+                    completion(.failure(error))
                 }
             }catch{
-                if error as? APIError == APIError.networkError{
-                    completion(.failure(.networkError))
-                }else{
-                    completion(.failure(.unknown))
-                }
+                completion(.failure(.unknown))
                 print(error)
             }
         }
     }
+}
+
+struct GithubAPI{
     
-    ///avatarImageのURLリクエストを投げてimageのデータを取得する
-    static func getAvatarImageOf(_ url: URL, completion:@escaping((UIImage)->Void)){
-        AF.request(url).responseJSON { (response) in
-            guard let data = response.data,
-                  let image = UIImage(data: data)
-            else {return}
-            completion(image)
+    struct GetRepositoryData: GithubAPIConfigure{
+        static var path: URL?{
+            let searchWord = TableViewDataSource.shared.searchWord
+            let url = URL(string: "https://api.github.com/search/repositories?q=\(searchWord)")
+            return url
         }
+        typealias JsonExport = Repository
+    }
+    
+    struct GetAvatarImageData: APIConfigure{
+        static var path: URL?{
+            let tableViewDataSource = TableViewDataSource.shared
+            let repository = tableViewDataSource.repositories.items[tableViewDataSource.selectedIndex]
+            let url = URL(string: repository.owner.avatarUrl)
+            return url
+        }
+    }
+    
+    struct GetReadmeData: GithubAPIConfigure{
+        static var path: URL?{
+            let tableViewDataSource = TableViewDataSource.shared
+            let repository = tableViewDataSource.repositories.items[tableViewDataSource.selectedIndex]
+            let owner = repository.owner.login
+            let name = repository.name
+            let url = URL(string: "https://api.github.com/repos/\(owner)/\(name)/readme")
+            return url
+        }
+        typealias JsonExport = Readme
     }
 }

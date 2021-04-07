@@ -12,6 +12,10 @@
 		34476D76261ADC6200986A54 /* LoadingView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34476D75261ADC6200986A54 /* LoadingView.storyboard */; };
 		34476D7E261AE27300986A54 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34476D7D261AE27300986A54 /* LoadingViewController.swift */; };
 		34476DA2261AFA4400986A54 /* 1846-material-activity-indicator.json in Resources */ = {isa = PBXBuildFile; fileRef = 34476DA1261AFA4400986A54 /* 1846-material-activity-indicator.json */; };
+		34476DB8261D6FAB00986A54 /* APIConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34476DB7261D6FAB00986A54 /* APIConfigure.swift */; };
+		34476DBD261D8AD200986A54 /* Readme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34476DBC261D8AD200986A54 /* Readme.swift */; };
+		34476DC5261D99C900986A54 /* ReadmeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34476DC4261D99C900986A54 /* ReadmeViewController.swift */; };
+		34476DD4261DB0CF00986A54 /* MarkdownView in Frameworks */ = {isa = PBXBuildFile; productRef = 34476DD3261DB0CF00986A54 /* MarkdownView */; };
 		34A77A862615AA2B00BBA64E /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77A852615AA2B00BBA64E /* TableViewDataSource.swift */; };
 		34A77A972615AD0900BBA64E /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77A962615AD0900BBA64E /* GithubAPI.swift */; };
 		34A77AC92615CC3A00BBA64E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77AC82615CC3900BBA64E /* TableViewCell.swift */; };
@@ -54,6 +58,9 @@
 		34476D75261ADC6200986A54 /* LoadingView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoadingView.storyboard; sourceTree = "<group>"; };
 		34476D7D261AE27300986A54 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		34476DA1261AFA4400986A54 /* 1846-material-activity-indicator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1846-material-activity-indicator.json"; sourceTree = "<group>"; };
+		34476DB7261D6FAB00986A54 /* APIConfigure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfigure.swift; sourceTree = "<group>"; };
+		34476DBC261D8AD200986A54 /* Readme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Readme.swift; sourceTree = "<group>"; };
+		34476DC4261D99C900986A54 /* ReadmeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadmeViewController.swift; sourceTree = "<group>"; };
 		34A77A852615AA2B00BBA64E /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		34A77A962615AD0900BBA64E /* GithubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
 		34A77AC82615CC3900BBA64E /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -86,6 +93,7 @@
 			files = (
 				34A77B1526160D4B00BBA64E /* Alamofire in Frameworks */,
 				34476D54261A24AF00986A54 /* Lottie in Frameworks */,
+				34476DD4261DB0CF00986A54 /* MarkdownView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +130,7 @@
 				BF0A658C244F2A3B00280FA6 /* DetailViewController.swift */,
 				34476D47261A03AC00986A54 /* GithubViewController.swift */,
 				34476D7D261AE27300986A54 /* LoadingViewController.swift */,
+				34476DC4261D99C900986A54 /* ReadmeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -144,8 +153,10 @@
 				34A77A962615AD0900BBA64E /* GithubAPI.swift */,
 				34A77A852615AA2B00BBA64E /* TableViewDataSource.swift */,
 				34A77B0E26160CCF00BBA64E /* Repository.swift */,
+				34476DBC261D8AD200986A54 /* Readme.swift */,
 				34A77B2A2616303E00BBA64E /* APIError.swift */,
 				34A77B372616CE1200BBA64E /* UIAlertControllerExtension.swift */,
+				34476DB7261D6FAB00986A54 /* APIConfigure.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -238,6 +249,7 @@
 			packageProductDependencies = (
 				34A77B1426160D4B00BBA64E /* Alamofire */,
 				34476D53261A24AF00986A54 /* Lottie */,
+				34476DD3261DB0CF00986A54 /* MarkdownView */,
 			);
 			productName = iOSEngineerCodeCheck;
 			productReference = BFD945DB244DC5E80012785A /* iOSEngineerCodeCheck.app */;
@@ -314,6 +326,7 @@
 			packageReferences = (
 				34A77B1326160D4B00BBA64E /* XCRemoteSwiftPackageReference "Alamofire" */,
 				34476D52261A24AF00986A54 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				34476DD2261DB0CF00986A54 /* XCRemoteSwiftPackageReference "MarkdownView" */,
 			);
 			productRefGroup = BFD945DC244DC5E80012785A /* Products */;
 			projectDirPath = "";
@@ -363,13 +376,16 @@
 			files = (
 				34A77B3F2617284A00BBA64E /* SearchViewController.swift in Sources */,
 				34A77B2B2616303E00BBA64E /* APIError.swift in Sources */,
+				34476DC5261D99C900986A54 /* ReadmeViewController.swift in Sources */,
 				34476D7E261AE27300986A54 /* LoadingViewController.swift in Sources */,
+				34476DB8261D6FAB00986A54 /* APIConfigure.swift in Sources */,
 				34A77A862615AA2B00BBA64E /* TableViewDataSource.swift in Sources */,
 				34476D48261A03AC00986A54 /* GithubViewController.swift in Sources */,
 				34A77B612619E97900BBA64E /* UIViewExtension.swift in Sources */,
 				BF0A658D244F2A3B00280FA6 /* DetailViewController.swift in Sources */,
 				34A77B0F26160CCF00BBA64E /* Repository.swift in Sources */,
 				34A77A972615AD0900BBA64E /* GithubAPI.swift in Sources */,
+				34476DBD261D8AD200986A54 /* Readme.swift in Sources */,
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,
 				34A77AC92615CC3A00BBA64E /* TableViewCell.swift in Sources */,
 				BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */,
@@ -706,6 +722,14 @@
 				minimumVersion = 3.2.1;
 			};
 		};
+		34476DD2261DB0CF00986A54 /* XCRemoteSwiftPackageReference "MarkdownView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/keitaoouchi/MarkdownView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.1;
+			};
+		};
 		34A77B1326160D4B00BBA64E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -721,6 +745,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 34476D52261A24AF00986A54 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		34476DD3261DB0CF00986A54 /* MarkdownView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34476DD2261DB0CF00986A54 /* XCRemoteSwiftPackageReference "MarkdownView" */;
+			productName = MarkdownView;
 		};
 		34A77B1426160D4B00BBA64E /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -14,6 +14,7 @@ final class TableViewDataSource: NSObject, UITableViewDataSource{
     ///シングルトンを作成
     lazy var repositories = Repository(items: [])
     lazy var selectedIndex: Int = 0
+    lazy var searchWord: String = ""
     static let shared = TableViewDataSource()
     
     ///シングルトンに格納されているrepositoryの数だけセルを返す
