@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import MarkdownView
 
-class ReadmeViewController: UIViewController {
+final class ReadmeViewController: UIViewController {
     
     private let md = MarkdownView()
     
