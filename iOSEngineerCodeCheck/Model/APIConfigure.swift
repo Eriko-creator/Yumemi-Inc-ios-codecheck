@@ -23,19 +23,11 @@ extension APIConfigure{
             return completion(.failure(.invalidURL))
         }
         AF.request(path, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON { (response) in
-            do{
-                guard let data = response.data else {
-                    throw APIError.networkError
-                }
-                completion(.success(data))
-            }catch{
-                if error as? APIError == APIError.networkError{
-                    completion(.failure(.networkError))
-                }else{
-                    completion(.failure(.unknown))
-                }
-                print(error)
+            guard let data = response.data else{
+                completion(.failure(.networkError))
+                return
             }
+            completion(.success(data))
         }
     }
 }
