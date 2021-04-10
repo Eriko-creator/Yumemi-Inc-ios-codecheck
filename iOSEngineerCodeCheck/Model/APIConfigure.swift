@@ -20,7 +20,8 @@ extension APIConfigure{
     static func request(completion: @escaping(Result<Data,APIError>)->Void){
         
         guard let path = self.path else {
-            return completion(.failure(.invalidURL))
+            completion(.failure(.invalidURL))
+            return
         }
         AF.request(path, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON { (response) in
             guard let data = response.data else{
