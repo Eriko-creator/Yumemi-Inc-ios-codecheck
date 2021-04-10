@@ -16,6 +16,7 @@
 		34476DBD261D8AD200986A54 /* Readme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34476DBC261D8AD200986A54 /* Readme.swift */; };
 		34476DC5261D99C900986A54 /* ReadmeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34476DC4261D99C900986A54 /* ReadmeViewController.swift */; };
 		34476DD4261DB0CF00986A54 /* MarkdownView in Frameworks */ = {isa = PBXBuildFile; productRef = 34476DD3261DB0CF00986A54 /* MarkdownView */; };
+		34476DDA2621F14A00986A54 /* DefaultURLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34476DD92621F14A00986A54 /* DefaultURLRequest.swift */; };
 		34A77A862615AA2B00BBA64E /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77A852615AA2B00BBA64E /* TableViewDataSource.swift */; };
 		34A77A972615AD0900BBA64E /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77A962615AD0900BBA64E /* GithubAPI.swift */; };
 		34A77AC92615CC3A00BBA64E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A77AC82615CC3900BBA64E /* TableViewCell.swift */; };
@@ -61,6 +62,7 @@
 		34476DB7261D6FAB00986A54 /* APIConfigure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfigure.swift; sourceTree = "<group>"; };
 		34476DBC261D8AD200986A54 /* Readme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Readme.swift; sourceTree = "<group>"; };
 		34476DC4261D99C900986A54 /* ReadmeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadmeViewController.swift; sourceTree = "<group>"; };
+		34476DD92621F14A00986A54 /* DefaultURLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultURLRequest.swift; sourceTree = "<group>"; };
 		34A77A852615AA2B00BBA64E /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		34A77A962615AD0900BBA64E /* GithubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
 		34A77AC82615CC3900BBA64E /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				34A77B2A2616303E00BBA64E /* APIError.swift */,
 				34A77B372616CE1200BBA64E /* UIAlertControllerExtension.swift */,
 				34476DB7261D6FAB00986A54 /* APIConfigure.swift */,
+				34476DD92621F14A00986A54 /* DefaultURLRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,
 				34A77AC92615CC3A00BBA64E /* TableViewCell.swift in Sources */,
 				BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */,
+				34476DDA2621F14A00986A54 /* DefaultURLRequest.swift in Sources */,
 				34A77B382616CE1200BBA64E /* UIAlertControllerExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

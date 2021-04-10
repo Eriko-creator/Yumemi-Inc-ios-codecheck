@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 import MarkdownView
 
 final class ReadmeViewController: UIViewController {
@@ -40,14 +39,9 @@ final class ReadmeViewController: UIViewController {
     
     private func getReadme(url: String){
         guard let url = URL(string: url) else { return }
-        AF.request(url).responseString { [unowned self] (response) in
-            switch response.result{
-            case .success(let string):
-                md.load(markdown: string, enableImage: true)
-                md.isScrollEnabled = false
-            case .failure(let error):
-                print(error)
-            }
+        DefaultURLRequest.shared.requestString(url: url) { (string) in
+            self.md.load(markdown: string)
+            self.md.isScrollEnabled = false
         }
     }
 }

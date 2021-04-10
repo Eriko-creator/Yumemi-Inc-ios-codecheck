@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Alamofire
 
 protocol APIConfigure{
     //APIの呼び出し先
@@ -23,8 +22,8 @@ extension APIConfigure{
             completion(.failure(.invalidURL))
             return
         }
-        AF.request(path, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON { (response) in
-            guard let data = response.data else{
+        DefaultURLRequest.shared.request(url: path) { (response) in
+            guard let data = response.data else {
                 completion(.failure(.networkError))
                 return
             }
