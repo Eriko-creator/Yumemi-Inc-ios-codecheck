@@ -15,6 +15,7 @@ final class ReadmeViewController: UIViewController {
     
     override func loadView() {
         self.view = md
+        self.view.translatesAutoresizingMaskIntoConstraints = false
     }
     
     override func viewDidLoad() {
@@ -40,8 +41,23 @@ final class ReadmeViewController: UIViewController {
     private func getReadme(url: String){
         guard let url = URL(string: url) else { return }
         DefaultURLRequest.shared.requestString(url: url) { (string) in
-            self.md.load(markdown: string)
-            self.md.isScrollEnabled = false
+            self.md.load(markdown: string, enableImage: true)
+            self.setUpMarkdownView()
         }
+    }
+    
+    private func setUpMarkdownView(){
+        md.isScrollEnabled = false
+        md.onRendered = { [weak self] height in
+            self?.view.frame.size.height = height
+            self?.view.setNeedsLayout()
+            //DetailViewのActivityIndicatorを消す
+            self?.didFinishLoading()
+        }
+    }
+    
+    private func didFinishLoading(){
+        guard let parent = self.parent as? DetailViewController else { return }
+        parent.activityIndicator.isHidden = true
     }
 }

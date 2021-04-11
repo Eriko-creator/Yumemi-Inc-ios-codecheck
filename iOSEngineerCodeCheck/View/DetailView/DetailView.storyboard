@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nQP-ix-zrg">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="790"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="810"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uaT-ZV-Vfp">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="395"/>
@@ -178,12 +178,59 @@
                                                     <constraint firstItem="GAH-T2-vu5" firstAttribute="leading" secondItem="uaT-ZV-Vfp" secondAttribute="leading" constant="20" id="uAf-KK-vDF"/>
                                                 </constraints>
                                             </view>
-                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZH-XE-bd4">
-                                                <rect key="frame" x="0.0" y="415" width="414" height="375"/>
-                                                <connections>
-                                                    <segue destination="yfX-JW-aBt" kind="embed" id="gJF-50-nHf"/>
-                                                </connections>
-                                            </containerView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J84-yA-yYb">
+                                                <rect key="frame" x="0.0" y="415" width="414" height="395"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1er-6B-JgW">
+                                                        <rect key="frame" x="20" y="10" width="374" height="375"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AcE-XN-3hL">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="26.5"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Readme.md" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3B-rO-3zi">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="115" height="26.5"/>
+                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="JIC-eD-ADN">
+                                                                        <rect key="frame" x="125" y="0.0" width="20" height="26.5"/>
+                                                                    </activityIndicatorView>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C5N-J7-DKs">
+                                                                        <rect key="frame" x="155" y="0.0" width="219" height="26.5"/>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    </view>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x7E-DN-NNs">
+                                                                <rect key="frame" x="0.0" y="36.5" width="374" height="5"/>
+                                                                <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92145836349999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="5" id="iVv-E0-Ziu"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZH-XE-bd4">
+                                                                <rect key="frame" x="0.0" y="51.5" width="374" height="323.5"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="15"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <segue destination="yfX-JW-aBt" kind="embed" id="gJF-50-nHf"/>
+                                                                </connections>
+                                                            </containerView>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="1er-6B-JgW" secondAttribute="bottom" constant="10" id="FOL-Ms-hwg"/>
+                                                    <constraint firstItem="1er-6B-JgW" firstAttribute="leading" secondItem="J84-yA-yYb" secondAttribute="leading" constant="20" id="H3g-fF-amy"/>
+                                                    <constraint firstItem="1er-6B-JgW" firstAttribute="top" secondItem="J84-yA-yYb" secondAttribute="top" constant="10" id="PHB-x9-Na5"/>
+                                                    <constraint firstAttribute="trailing" secondItem="1er-6B-JgW" secondAttribute="trailing" constant="20" id="XuT-lr-25X"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -221,6 +268,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="JIC-eD-ADN" id="GLK-lJ-V7e"/>
                         <outlet property="avatorImageView" destination="xAe-o0-42g" id="sVx-zk-CXT"/>
                         <outlet property="forksCount" destination="BpU-pV-sRh" id="d52-pZ-o1H"/>
                         <outlet property="goToGithubButton" destination="nnW-IU-zs0" id="Y0E-qw-klf"/>
@@ -240,8 +288,9 @@
             <objects>
                 <viewController id="yfX-JW-aBt" customClass="ReadmeViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="446-yG-ZfV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="374" height="323.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="JET-7M-evB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>

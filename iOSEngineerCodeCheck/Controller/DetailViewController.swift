@@ -18,6 +18,7 @@ final class DetailViewController: UIViewController {
     @IBOutlet private weak var forksCount: UILabel!
     @IBOutlet private weak var issuesCount: UILabel!
     @IBOutlet private weak var goToGithubButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,7 @@ final class DetailViewController: UIViewController {
         }
         guard let url = URL(string: repository.owner.avatarUrl) else {return}
         setImage(from: url)
+        activityIndicator.startAnimating()
     }
     
     private func setUpButton(){
