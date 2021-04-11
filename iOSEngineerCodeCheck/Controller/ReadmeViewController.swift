@@ -29,10 +29,8 @@ final class ReadmeViewController: UIViewController {
             case .success(let readme):
                 self.getReadme(url: readme.downloadUrl)
             case .failure(let error):
-                let label = UILabel(frame: self.view.frame)
-                label.center = self.view.center
-                label.text = "Readme was not found."
-                self.view.addSubview(label)
+                self.showLabel()
+                self.didFinishLoading()
                 print(error)
             }
         }
@@ -46,16 +44,23 @@ final class ReadmeViewController: UIViewController {
         }
     }
     
+    private func showLabel(){
+        let label = UILabel(frame: CGRect(origin: .zero, size: CGSize(width: view.frame.width, height: 30)))
+        label.text = "Readme was not found."
+        label.font = .systemFont(ofSize: 15.0)
+        self.view.addSubview(label)
+    }
+    
     private func setUpMarkdownView(){
         md.isScrollEnabled = false
         md.onRendered = { [weak self] height in
             self?.view.frame.size.height = height
             self?.view.setNeedsLayout()
-            //DetailViewのActivityIndicatorを消す
             self?.didFinishLoading()
         }
     }
     
+    ///DetailViewのActivityIndicatorを消すメソッド
     private func didFinishLoading(){
         guard let parent = self.parent as? DetailViewController else { return }
         parent.activityIndicator.isHidden = true

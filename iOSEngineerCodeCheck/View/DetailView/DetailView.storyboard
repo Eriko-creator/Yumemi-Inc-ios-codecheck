@@ -37,7 +37,7 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="87" height="200"/>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                     </view>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xAe-o0-42g">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="xAe-o0-42g">
                                                                         <rect key="frame" x="87" y="0.0" width="200" height="200"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="200" id="g1f-cY-ljK"/>
@@ -304,6 +304,7 @@
         <image name="exclamationmark.circle" catalog="system" width="128" height="121"/>
         <image name="eye" catalog="system" width="128" height="81"/>
         <image name="github" width="32" height="32"/>
+        <image name="noImage" width="300" height="300"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
