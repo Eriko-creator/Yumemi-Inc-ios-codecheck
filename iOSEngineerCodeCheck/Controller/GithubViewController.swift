@@ -43,10 +43,14 @@ extension GithubViewController: WKNavigationDelegate{
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        load.dismiss(animated: false, completion: nil)
+        load.dismiss(animated: false) {
+            UIAlertController.showAPIErrorAlert(error: .unknown, self)
+        }
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        load.dismiss(animated: false, completion: nil)
+        load.dismiss(animated: false) {
+            UIAlertController.showAPIErrorAlert(error: .networkError, self)
+        }
     }
 }

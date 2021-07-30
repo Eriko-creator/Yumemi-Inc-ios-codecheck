@@ -34,11 +34,13 @@ final class SearchViewController: UIViewController{
         ///Loading画面を表示
         let load = LoadingViewController.makeFromStoryboard()
         self.present(load, animated: false, completion: nil)
+        TableViewDataSource.shared.searchWord = searchWord
         ///API通信を行う、エラー処理
-        GithubAPI.getRepositoryDataOf(searchWord){ [unowned self] (result) in
+        GithubAPI.GetRepositoryData.request { (result) in
             switch result{
-            case .success(()):
-                tableView.reloadData()
+            case .success(let result):
+                TableViewDataSource.shared.repositories = result
+                self.tableView.reloadData()
                 load.dismiss(animated: false, completion: nil)
             case .failure(let error):
                 load.dismiss(animated: false) {

@@ -18,6 +18,7 @@ final class DetailViewController: UIViewController {
     @IBOutlet private weak var forksCount: UILabel!
     @IBOutlet private weak var issuesCount: UILabel!
     @IBOutlet private weak var goToGithubButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,7 @@ final class DetailViewController: UIViewController {
         }
         guard let url = URL(string: repository.owner.avatarUrl) else {return}
         setImage(from: url)
+        activityIndicator.startAnimating()
     }
     
     private func setUpButton(){
@@ -49,8 +51,14 @@ final class DetailViewController: UIViewController {
     
     ///searchViewControllerで取得したrepository内のURLからavatorImageViewを取得して反映させる
     private func setImage(from url: URL){
-        GithubAPI.getAvatarImageOf(url){ (image) in
-            self.avatorImageView.image = image
+        GithubAPI.GetAvatarImageData.request { (result) in
+            switch result{
+            case .success(let data):
+                let image = UIImage(data: data)
+                self.avatorImageView.image = image
+            case .failure(let error):
+                print(error)
+            }
         }
     }
     
