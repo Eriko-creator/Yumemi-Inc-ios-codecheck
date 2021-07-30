@@ -4,25 +4,25 @@
 
 ## 環境
 
-Swift5.1
-Xcode12.4.1
-開発ターゲット
-サードパーティーライブラリ：SwiftPackageManagerでAlamofire, MarkdownView, Lottieを使用
+- Swift5.1
+- Xcode12.4.1
+- 開発ターゲット
+- サードパーティーライブラリ：SwiftPackageManagerでAlamofire, MarkdownView, Lottieを使用
 
 ## 機能
 
-・検索ワードからレポジトリを検索し、結果一覧をTableViewに表示させる
-・特定の結果を選択したら、該当リポジトリのリポジトリ名、オーナーアイコン、プロジェクト言語、Star数、Fork数、Watcher数、OpenIssue数、Readmeを表示
-・リポジトリの詳細画面のNavigationBar上のボタンを選択すると、githubのwebページを表示
+- 検索ワードからレポジトリを検索し、結果一覧をTableViewに表示させる
+- 特定の結果を選択したら、該当リポジトリのリポジトリ名、オーナーアイコン、プロジェクト言語、Star数、Fork数、Watcher数、OpenIssue数、Readmeを表示
+- リポジトリの詳細画面のNavigationBar上のボタンを選択すると、githubのwebページを表示
 
 ## 工夫した点
 
-・MVCアーキテクチャを採用し、疎結合なコードにするためAPI通信部分をプロトコル化し依存性注入を行った
+- MVCアーキテクチャを採用し、疎結合なコードにするためAPI通信部分をプロトコル化し依存性注入を行った
 
-ユーザー視点の動作：
-・Loadingしていることが分かるようにLoadingViewControllerを作りポップアップを表示するようにした
-・ReadmeをLoadingしている時は既に表示が終了している他の部分の邪魔をしないよう、ポップアップを表示するのではなくActivityIndicatorを採用した
-・ユーザーが解決できるエラー、そうではないエラーに分け、UIAlertControllerを表示してエラー処理を行った
+- ユーザー視点の動作：
+  - Loadingしていることが分かるようにLoadingViewControllerを作りポップアップを表示するようにした
+  - ReadmeをLoadingしている時は既に表示が終了している他の部分の邪魔をしないよう、ポップアップを表示するのではなくActivityIndicatorを採用した
+  - ユーザーが解決できるエラー、そうではないエラーに分け、UIAlertControllerを表示してエラー処理を行った
 
 
 以下、課題の原文です。
